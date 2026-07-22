@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+/* Custom overrides to approximate the requested layout (paper grid, large hero, pill buttons, bottom nav) */
+:root{
+  --paper-grid-line: rgba(22,59,89,0.06);
+}
+
+/* paper grid background */
+html,body{
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, var(--paper-grid-line) 0 1px, transparent 1px 80px),
+    repeating-linear-gradient(90deg, var(--paper-grid-line) 0 1px, transparent 1px 80px);
+  background-size: auto;
+}
+
+/* Hero adjustments */
+.hero{padding-top:60px;padding-bottom:90px;}
+.hero-copy{padding-left:36px;}
+.hero h1{font-size:clamp(38px,8vw,86px);line-height:0.92;margin:8px 0 18px;color:var(--blue-deep);font-weight:700;}
+.hero h1 span{display:block;font-size:0.6em;color:var(--red-dark);font-weight:600}
+.hero h1 em{font-style:normal;color:var(--blue);}
+.hero-intro{max-width:680px;color:rgba(30,36,37,.85);}
+
+/* Buttons: pill style with shadow */
+.button{border-radius:999px;padding:12px 24px;font-weight:600}
+.button-primary{background:var(--red);color:#fff;border:none;box-shadow:0 10px 20px rgba(166,43,43,0.28);}
+.button-ghost{background:transparent;border:2px solid rgba(22,59,89,0.12);color:var(--blue-deep);padding:10px 22px}
+
+/* Hero stats spacing */
+.hero-stats{display:flex;gap:28px;margin-top:28px}
+.hero-stats li{min-width:60px}
+.hero-stats strong{font-size:20px;color:var(--blue-deep)}
+
+/* Field card tilt effect slight enlarge */
+.field-wrap{transform:translateY(18px)}
+.field-card{max-width:560px;border-radius:12px}
+
+/* Sticky rounded bottom navigation (desktop and mobile) */
+.mobile-nav{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:1200;display:flex;gap:18px;padding:14px 26px;background:var(--blue-deep);color:#fff;border-radius:28px;box-shadow:0 14px 30px rgba(12,39,59,0.28);max-width:920px;width:clamp(320px,88%,920px);justify-content:space-around}
+.mobile-nav a{color:#fff;padding:8px 12px;text-decoration:none;border-radius:8px}
+.mobile-nav a:hover{background:rgba(255,255,255,0.04)}
+
+/* make header less intrusive */
+.site-header{backdrop-filter:blur(18px) saturate(120%);}
+
+/* responsive tweaks */
+@media(min-width:1200px){
+  .hero{min-height:820px}
+}
+@media(max-width:980px){
+  .hero h1{font-size:46px}
+  .mobile-nav{padding:12px 18px;border-radius:20px}
+}
+
+/* small utility to ensure hero buttons stack nicely */
+.hero-actions{display:flex;gap:14px;align-items:center}
+
+/* subtle card shadow */
+.field-card{box-shadow:0 18px 40px rgba(12,39,59,0.06)}
